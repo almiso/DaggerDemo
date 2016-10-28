@@ -8,6 +8,13 @@
 
     <!--Common-->
     <color name="col_white">#FFFFFF</color>
+    <color name="col_black">#000000</color>
+    <color name="col_red">#F44336</color>
+    <color name="col_yellow">#FFEB3B</color>
+    <color name="col_green">#4CAF50</color>
+
+    <!--Modified-->
+    <color name="col_grey_800">#424242</color>
 
     <!--App theme-->
     <color name="col_content_background">#F5F5F5</color>

@@ -12,6 +12,7 @@ import org.almiso.daggerdemo.core.App;
 import org.almiso.daggerdemo.core.presenter.CustomersPresenter;
 import org.almiso.daggerdemo.core.presenter.PresenterInfo;
 import org.almiso.daggerdemo.model.Customer;
+import org.almiso.daggerdemo.model.UiUpdateEvent;
 import org.almiso.daggerdemo.ui.view.CustomerView;
 import org.almiso.daggerdemo.ui.view.EmptyBottomView;
 import org.almiso.daggerdemo.ui.view.Holder;
@@ -122,7 +123,7 @@ public class CustomersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             return VIEW_TYPE_CUSTOMER;
         } else if (position == positionProgress) {
             return VIEW_TYPE_PROGRESS;
-        }else if (position == positionEmptyBottom) {
+        } else if (position == positionEmptyBottom) {
             return VIEW_TYPE_EMPTY_BOTTOM;
         }
 
@@ -188,7 +189,9 @@ public class CustomersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEventMainThread(CustomersPresenter.UpdateEvent event) {
-        updateAdapter();
+    public void onEventMainThread(UiUpdateEvent event) {
+        if (event.getEventId() == UiUpdateEvent.onCustomerPresenterUpdated) {
+            updateAdapter();
+        }
     }
 }

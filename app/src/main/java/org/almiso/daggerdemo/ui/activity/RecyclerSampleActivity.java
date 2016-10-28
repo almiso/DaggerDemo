@@ -36,6 +36,8 @@ public class RecyclerSampleActivity extends BaseActivity {
 
     private CustomersAdapter adapter;
 
+    /* Start methods */
+
     public static void start(Activity activity) {
         Intent intent = new Intent(activity, RecyclerSampleActivity.class);
         activity.startActivity(intent);
@@ -61,7 +63,6 @@ public class RecyclerSampleActivity extends BaseActivity {
         initToolbar();
         initView();
     }
-
 
     /* Initialisation methods */
 

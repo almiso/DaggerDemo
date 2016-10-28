@@ -2,6 +2,7 @@ package org.almiso.daggerdemo.core.presenter;
 
 
 import org.almiso.daggerdemo.model.Customer;
+import org.almiso.daggerdemo.model.UiUpdateEvent;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
@@ -59,9 +60,6 @@ public class CustomersPresenter {
     }
 
     private void notifyOnDataChanged() {
-        EventBus.getDefault().post(new UpdateEvent());
-    }
-
-    public static class UpdateEvent {
+        EventBus.getDefault().post(new UiUpdateEvent(UiUpdateEvent.onCustomerPresenterUpdated));
     }
 }

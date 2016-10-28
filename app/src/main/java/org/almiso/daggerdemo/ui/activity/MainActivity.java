@@ -29,5 +29,12 @@ public class MainActivity extends BaseActivity {
                 RecyclerSampleActivity.start(MainActivity.this);
             }
         });
+
+        findViewById(R.id.button_sample_scope).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ScopeSampleActivity.start(MainActivity.this);
+            }
+        });
     }
 }

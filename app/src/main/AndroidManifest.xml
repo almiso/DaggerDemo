@@ -18,7 +18,11 @@
         </activity>
 
         <activity android:name=".ui.activity.SimpleSampleActivity" />
-        <activity android:name=".ui.activity.RecyclerSampleActivity" />
-    </application>
 
+        <activity android:name=".ui.activity.RecyclerSampleActivity" />
+
+        <activity
+            android:name=".ui.activity.ScopeSampleActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+    </application>
 </manifest>

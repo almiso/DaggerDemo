@@ -3,7 +3,7 @@
 
     <!--Main activity-->
     <string name="st_sample_simple">Simple sample</string>
-    <string name="st_sample_recycler">RecyclerView + Adapter + Presenter</string>
+    <string name="st_sample_scope">Scope sample</string>
 
     <!--Simple sample-->
     <string name="st_simple_injection">Simple injection</string>
