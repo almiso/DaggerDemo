@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">DaggerDemo</string>
+
+    <!--Main activity-->
+    <string name="st_sample_simple">Simple sample</string>
+    <string name="st_sample_recycler">RecyclerView + Adapter + Presenter</string>
+
+    <!--Simple sample-->
+    <string name="st_simple_injection">Simple injection</string>
+    <string name="st_next_random">Next random</string>
+    <string name="st_random_number">Random number is \n%d</string>
+
+    <!--Recycler sample-->
+    <string name="st_multiple_injections">Multiple injections</string>
+    <string name="st_load_more">Load more</string>
+</resources>

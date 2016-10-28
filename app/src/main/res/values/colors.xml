@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Base-->
+    <color name="colorPrimary">#8BC34A</color>
+    <color name="colorPrimaryDark">#689F38</color>
+    <color name="colorAccent">#03A9F4</color>
+
+    <!--Common-->
+    <color name="col_white">#FFFFFF</color>
+
+    <!--App theme-->
+    <color name="col_content_background">#F5F5F5</color>
+</resources>
