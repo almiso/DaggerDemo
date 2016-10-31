@@ -13,4 +13,8 @@
     <!--Recycler sample-->
     <string name="st_multiple_injections">Multiple injections</string>
     <string name="st_load_more">Load more</string>
+
+    <!--Scope sample-->
+    <string name="st_sign_in">Sign in</string>
+    <string name="st_sign_out">Sign out</string>
 </resources>

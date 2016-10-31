@@ -12,8 +12,8 @@ import android.widget.FrameLayout;
 
 import org.almiso.daggerdemo.R;
 import org.almiso.daggerdemo.core.App;
-import org.almiso.daggerdemo.core.presenter.ColorPresenter;
 import org.almiso.daggerdemo.model.UiUpdateEvent;
+import org.almiso.daggerdemo.util.UserConfig;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -28,16 +28,17 @@ public class ColorFragment extends BaseFragment {
     /* Data */
 
     @Inject
-    ColorPresenter presenter;
+    UserConfig userConfig;
 
     /* Views */
+
     private FrameLayout layoutColor;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_color, container, false);
 
-        App.getColorComponent().inject(this);
+        App.getAppComponent().inject(this);
 
         initViews(rootView);
         updateUi();
@@ -49,16 +50,21 @@ public class ColorFragment extends BaseFragment {
     }
 
     private void updateUi() {
-        switch (presenter.getColor()) {
-            case RED:
+        if (!userConfig.isSignIn()) {
+            changeColor(getResources().getColor(R.color.col_white));
+            return;
+        }
+
+        switch (userConfig.getColor()) {
+            case UserConfig.RED:
                 changeColor(getResources().getColor(R.color.col_red));
                 break;
 
-            case YELLOW:
+            case UserConfig.YELLOW:
                 changeColor(getResources().getColor(R.color.col_yellow));
                 break;
 
-            case GREEN:
+            case UserConfig.GREEN:
                 changeColor(getResources().getColor(R.color.col_green));
                 break;
         }
@@ -81,7 +87,9 @@ public class ColorFragment extends BaseFragment {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEventMainThread(UiUpdateEvent event) {
-        if (event.getEventId() == UiUpdateEvent.onColorPresenterUpdated) {
+        if (event.getEventId() == UiUpdateEvent.onColorUpdated) {
+            updateUi();
+        } else if (event.getEventId() == UiUpdateEvent.onSignStateUpdated) {
             updateUi();
         }
     }

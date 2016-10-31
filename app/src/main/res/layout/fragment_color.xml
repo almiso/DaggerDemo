@@ -16,7 +16,7 @@
             android:id="@+id/layout_color"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/col_red" />
+            android:background="@color/col_white" />
 
     </android.support.v7.widget.CardView>
 </FrameLayout>

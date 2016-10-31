@@ -1,13 +1,11 @@
 package org.almiso.daggerdemo.core;
 
 import android.app.Application;
+import android.content.Context;
 
 import org.almiso.daggerdemo.di.base.AppComponent;
 import org.almiso.daggerdemo.di.base.AppModule;
 import org.almiso.daggerdemo.di.base.DaggerAppComponent;
-import org.almiso.daggerdemo.di.color.ColorComponent;
-import org.almiso.daggerdemo.di.color.ColorModule;
-import org.almiso.daggerdemo.di.color.DaggerColorComponent;
 import org.almiso.daggerdemo.di.recycler.DaggerRecyclerComponent;
 import org.almiso.daggerdemo.di.recycler.RecyclerComponent;
 import org.almiso.daggerdemo.di.recycler.RecyclerModule;
@@ -18,23 +16,19 @@ public class App extends Application {
 
     private static AppComponent appComponent;
     private static RecyclerComponent recyclerComponent;
-    private static ColorComponent colorComponent;
 
     /* Common methods */
 
     @Override
     public void onCreate() {
         super.onCreate();
+
+        appComponent = createAppComponent(this);
     }
 
     /* Public methods */
 
     public static AppComponent getAppComponent() {
-        if (appComponent == null) {
-            appComponent = DaggerAppComponent.builder()
-                    .appModule(new AppModule())
-                    .build();
-        }
         return appComponent;
     }
 
@@ -47,17 +41,11 @@ public class App extends Application {
         return recyclerComponent;
     }
 
-    public static ColorComponent getColorComponent() {
-        if (colorComponent == null) {
-            colorComponent = DaggerColorComponent.builder()
-                    .colorModule(new ColorModule())
-                    .build();
-        }
+    /* Private methods */
 
-        return colorComponent;
-    }
-
-    public static void clearColorComponent() {
-        colorComponent = null;
+    private AppComponent createAppComponent(Context context) {
+        return DaggerAppComponent.builder()
+                .appModule(new AppModule(context))
+                .build();
     }
 }

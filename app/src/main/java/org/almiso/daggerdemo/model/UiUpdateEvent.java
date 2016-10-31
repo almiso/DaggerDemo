@@ -4,7 +4,8 @@ public class UiUpdateEvent {
 
     private static int totalEvents = 1;
     public static final int onCustomerPresenterUpdated = totalEvents++;
-    public static final int onColorPresenterUpdated = totalEvents++;
+    public static final int onColorUpdated = totalEvents++;
+    public static final int onSignStateUpdated = totalEvents++;
 
     /* Data */
 

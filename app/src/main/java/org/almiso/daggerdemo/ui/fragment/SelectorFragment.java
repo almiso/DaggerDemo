@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import org.almiso.daggerdemo.R;
 import org.almiso.daggerdemo.core.App;
-import org.almiso.daggerdemo.core.presenter.ColorPresenter;
+import org.almiso.daggerdemo.util.UserConfig;
 
 import javax.inject.Inject;
 
@@ -17,7 +17,7 @@ public class SelectorFragment extends BaseFragment {
     /* Data */
 
     @Inject
-    ColorPresenter presenter;
+    UserConfig userConfig;
 
     /* Common methods */
 
@@ -25,7 +25,7 @@ public class SelectorFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_selector, container, false);
 
-        App.getColorComponent().inject(this);
+        App.getAppComponent().inject(this);
 
         initViews(rootView);
         return rootView;
@@ -35,21 +35,21 @@ public class SelectorFragment extends BaseFragment {
         rootView.findViewById(R.id.fab_red).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.updateColor(ColorPresenter.Color.RED);
+                userConfig.setColor(UserConfig.RED);
             }
         });
 
         rootView.findViewById(R.id.fab_yellow).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.updateColor(ColorPresenter.Color.YELLOW);
+                userConfig.setColor(UserConfig.YELLOW);
             }
         });
 
         rootView.findViewById(R.id.fab_green).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.updateColor(ColorPresenter.Color.GREEN);
+                userConfig.setColor(UserConfig.GREEN);
             }
         });
     }
