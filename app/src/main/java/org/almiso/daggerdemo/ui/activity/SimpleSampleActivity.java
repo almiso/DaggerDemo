@@ -58,7 +58,9 @@ public class SimpleSampleActivity extends BaseActivity {
     }
 
     private void initViews() {
-        SimpleComponent component = DaggerSimpleComponent.builder().simpleModule(new SimpleModule()).build();
+        SimpleComponent component = DaggerSimpleComponent.builder()
+                .simpleModule(new SimpleModule())
+                .build();
         component.inject(this);
 
         findViewById(R.id.button_next_random).setOnClickListener(new View.OnClickListener() {

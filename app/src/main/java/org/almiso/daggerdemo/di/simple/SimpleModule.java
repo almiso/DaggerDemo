@@ -14,5 +14,6 @@ public class SimpleModule {
     @Singleton
     Random providesRandom() {
         return new Random();
+//        return new MockRandom();
     }
 }

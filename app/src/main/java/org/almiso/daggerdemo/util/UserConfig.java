@@ -15,7 +15,7 @@ public class UserConfig {
 
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({RED, YELLOW, GREEN})
-    public @interface Color {
+    @interface Color {
     }
 
     public static final int RED = 0;
